@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Contact from './addContact';
+import Logout from './logout';
 
 function SignInForm() {
   const [loginData, setLoginData] = useState({
@@ -25,9 +26,10 @@ function SignInForm() {
       const response = await axios.post('http://localhost:3031/api/user/login', loginData, {
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        withCredentials: true // Ajout de withCredentials
       });
-
+      console.log(response);
       // Vérification de la réponse
       if (response.status === 200) {
         // Marquer l'utilisateur comme connecté
@@ -60,6 +62,7 @@ function SignInForm() {
   // Si l'utilisateur est connecté, afficher le contenu de la page d'accueil
   return (
     <div>
+      <Logout />
       <h1>Bienvenue sur la page d'accueil !</h1>
       < Contact />
     </div>
