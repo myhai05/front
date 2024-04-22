@@ -1,20 +1,18 @@
-import React from "react";
 import Search from "../components/search";
+import React, { useState, useEffect } from 'react';
+import Header from "./header";
+
+
+function Home() {
 
 
 
 
-
-
-function Home(){
-
-    //
-    return  (
-            <div>
-                <Search />
-               <p>Home</p>
-           </div>
-    );
+   return (
+   <div>
+         < Header />
+         
+   </div>);
 }
 
 export default Home;

@@ -1,12 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
-import AppRouter from './router';
+import SignInForm from './components/signIn';
+import { useDispatch } from "react-redux";
+import { getUser } from "./actions/user.actions";
+import { UidContext } from './routes/AppContext';
+import { useSelector } from 'react-redux';
+import AppRouter from "./router";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/esm/Container';
+
 
 function App() {
+  
+    
   return (
-    <div>
-        <AppRouter />
-    </div>
+     <div>
+      <Container>      
+      <AppRouter />
+      </Container>
+        
+      </div>
   );
 }
 

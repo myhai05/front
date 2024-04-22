@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import cookie from "js-cookie";
+import Button from 'react-bootstrap/Button';
 
 const Logout = () => {
   const removeCookie = (key) => {
@@ -22,7 +23,10 @@ const Logout = () => {
   };
 
   return (
-        <button onClick={logout}>Logout</button>
+    <>
+    <Button variant="primary" onClick={logout}>Quitter</Button>{' '}
+    </>
+        
     
 
   );

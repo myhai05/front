@@ -1,13 +1,20 @@
 import React from "react";
+import Logout from "../components/logout";
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
 
-
-function Header(){
+function Header() {
 
     //
-    return  (
-            <div>
-               <p>Header</p>
-           </div>
+    return (
+        <div>
+            <Navbar className="bg-body-tertiary">
+                <Container>
+                    <Navbar.Brand href="">Logo</Navbar.Brand>
+                    <Logout />
+                </Container>
+            </Navbar>
+        </div>
     );
 }
 
