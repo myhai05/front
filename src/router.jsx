@@ -16,7 +16,6 @@ function AppRouter() {
       <Routes>
         <Route path="/register" element={<SignUpForm />}/>
         <Route path="/login" element={<SignInForm />}/>
-     
       </Routes>
     </Router>
   );

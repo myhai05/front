@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/esm/Container';
+
+
 
 const NewContactForm = (props) => {
     const [showForm, setShowForm] = useState(false);
@@ -67,6 +70,7 @@ const NewContactForm = (props) => {
 
     return (
         <div>
+            <Container>
             <Button variant="success" onClick={handleButtonClick}>
                 {showForm ? 'Fermer le formulaire' : 'Nouveau contact'}
             </Button>
@@ -90,6 +94,7 @@ const NewContactForm = (props) => {
                     </Form>
                 </div>
             )}
+            </Container>
         </div>
     );
 };
