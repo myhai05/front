@@ -36,7 +36,7 @@ function SignInForm() {
         },
         withCredentials: true // Ajout de withCredentials
       });
-      console.log(response);
+     // console.log(response);
 
       // Vérification de la réponse
       if (response.status === 200) {

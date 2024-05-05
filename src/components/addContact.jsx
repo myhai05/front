@@ -100,4 +100,3 @@ const NewContactForm = (props) => {
 };
 
 export default NewContactForm;
-  
