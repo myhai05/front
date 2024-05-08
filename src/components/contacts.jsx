@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import DeleteContact from './deleteContact';
 import Pagination from 'react-bootstrap/Pagination';
 import axios from 'axios';
-
+import NewContactForm from './addContact';
+import {Link} from 'react-router-dom';
 
 
 
@@ -28,6 +28,7 @@ const Contacts = (props) => {
         const response = await axios.get(`http://localhost:3031/api/user/contacts/${userId}`);
         // Mettre à jour l'état des contacts avec les données reçues de l'API
         setContacts(response.data.contacts);
+        setAddContactOperation(false);
         setContactDeleted(false);
       } catch (error) {
         console.error('Erreur lors de la récupération des contacts :', error);
@@ -75,6 +76,7 @@ const handleContactOperation = () => {
 
     return (
         <Container>
+            < NewContactForm onAdd={handleContactOperation} userId={userId} />
             <h2>Bonjour {firstName}</h2>
             <p>{lastName}</p>
             <h3>Voici la liste de tes contacts:</h3>
@@ -91,7 +93,8 @@ const handleContactOperation = () => {
                                 <Card.Text>Contact Tel: {contact.contactTel}</Card.Text>
                                 <div className="d-flex justify-content-between">
                                     <DeleteContact userId={userId} contactId={contact._id} onDelete={handleContactDelete} />
-                                    <Button variant="primary">Editer</Button>
+                                    <Link variant="primary" to={`update-contact/${contact.contactId}` }>Editer</Link>
+                                   
                                 </div>
                             </Card.Body>
                         </Card>

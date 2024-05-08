@@ -58,7 +58,7 @@ function SignInForm() {
     }
   };
 
-
+ 
   // Afficher le formulaire de connexion si l'utilisateur n'est pas connecté
   if (!loggedIn) {
     return (
@@ -84,7 +84,7 @@ function SignInForm() {
   return (
     <div>
       < Home />
-      < NewContactForm contact={responseState}/>
+     
       < Contacts contact={responseState}/>
     </div>
   );

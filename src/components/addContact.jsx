@@ -6,26 +6,26 @@ import Container from 'react-bootstrap/esm/Container';
 
 
 
-const NewContactForm = (props) => {
+
+const NewContactForm = ({userId, onAdd}) => {
     const [showForm, setShowForm] = useState(false);
-    const [userId, setUserId] = useState();
+    //const [userId, setUserId] = useState();
     const [formData, setFormData] = useState({
         userId:'',
         contactName: '',
         contactPrenom: '',
         contactTel: ''
     });
-    
+    console.log(userId);
     useEffect(() => {
-        if (props.contact && props.contact.data && props.contact.data.responseData) {
-            setUserId(props.contact.data.responseData.userId);
+        if (userId) {
             setFormData(prevState => ({
                 ...prevState,
-                userId: props.contact.data.responseData.userId
+                userId: userId
             }));
         }
-    }, [props.contact]);
-
+    }, [userId]);
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -43,10 +43,11 @@ const NewContactForm = (props) => {
                     'Content-Type': 'application/json'
                 }
             });
-
+            
             if (response.status !== 200) {
                 throw new Error('Erreur lors de l\'ajout du contact');
             }
+            onAdd();
 
             setFormData({
                 contactName: '',
@@ -56,7 +57,7 @@ const NewContactForm = (props) => {
             });
 
             setShowForm(false);
-
+            
             alert('Contact ajouté avec succès !');
         } catch (error) {
             console.error('Erreur:', error);
